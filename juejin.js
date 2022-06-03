@@ -94,8 +94,17 @@ const sendEmailFromQQ = async (subject, html) => {
 }
 
 // exports.juejin = async (event, context) => {
+//     console.log('开始');
+//     await checkIn();
+//     await draw();
+//     console.log('结束');
+// };
+
+const start = async () => {
     console.log('开始');
     await checkIn();
     await draw();
     console.log('结束');
-// };
+}
+
+start()
