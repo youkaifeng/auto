@@ -97,7 +97,7 @@ const dipLucky = async () => {
     const {cookie, baseUrl, apiUrl} = config;
     let {data} = await axios({url: baseUrl + apiUrl.dip_lucky, method: 'post', data: {lottery_history_id: history_id}, headers: {Cookie: cookie}});
     if (data.err_no) return console.log('沾喜气失败');
-    console.log(`沾喜气结果has_dip：${data.data.has_dip}`);
+    if (data.data.has_dip) return console.log('今天已经沾过了，明天再来吧');
     console.log(`恭喜沾到喜气：${data.data.dip_value}, 目前幸运值${data.data.total_value} / 6000`)
     await sendEmailFromQQ('沾喜气：成功', JSON.stringify(data));
 }
