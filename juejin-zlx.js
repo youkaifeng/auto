@@ -84,7 +84,8 @@ const getGlobalBig = async () => {
     if (data.err_no) {
         return {error: true, history_id: null}
     } else {
-        let lotteries = data.data.lotteries.filter(item => item.dip_lucky_user_count === 0) || data.data.lotteries
+        let temp = data.data.lotteries.filter(item => item.dip_lucky_user_count === 0)
+        let lotteries = temp > 0 ? temp : data.data.lotteries
         return {error: false, history_id: lotteries[0].history_id}
     }
 }
